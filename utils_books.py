@@ -87,6 +87,8 @@ Answer:
 # Step 4: Get response from Chat Completion API
 def answer_query(query, index, client, selected_titles=None):
     global conversation_history
+    if selected_titles is None:
+        selected_titles = []
 
     results = search_pinecone(
         query,
