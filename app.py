@@ -24,12 +24,15 @@ print("Conversation memory reset on server startup.")
 def ask():
     data = request.get_json()
     query = data.get("query")
+    selected_titles = data.get("selected_titles")  # <-- nieuwe regel
 
     if not query:
         return jsonify({"answer": "No query provided."})
 
-    answer = answer_query(query, index, client)
+    # geef selected_titles door
+    answer = answer_query(query, index, client, selected_titles=selected_titles)
     return jsonify({"answer": answer})
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
