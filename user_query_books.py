@@ -17,13 +17,14 @@ index = pc.Index("boekwijzer-index")
 client = OpenAI()
 
 # Example query                                             #to get answer in cmd: """query = "Waar zit het notariskantoor? answer = "answer = answer_query(query, index, client), print(answer)"""
-#query = input("Please enter your question: ")
+query = input("Please enter your question: ")
 answer = answer_query(query, index, client)
 print("\nAnswer:")
 #print(answer)
 #query = "Waar zit het notariskantoor?"
 #answer = answer_query(query, index, client)
 #print(answer)
+
 
 
 
