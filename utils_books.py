@@ -100,7 +100,11 @@ def answer_query(query, index, client, selected_titles=None):
 
     completion = client.chat.completions.create(
         model="gpt-4o-mini",
-        messages=[...])
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant that answers based on context."},
+            {"role": "user", "content": prompt}
+        ]
+    )
 
     answer = completion.choices[0].message.content
 
